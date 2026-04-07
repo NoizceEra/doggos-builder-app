@@ -1,6 +1,6 @@
 import { Program, BN } from "@coral-xyz/anchor";
 import { PublicKey, SystemProgram, Connection } from "@solana/web3.js";
-import { keccak_256 } from "@noble/hashes/sha3";
+import { keccak_256 } from "@noble/hashes/sha3.js";
 import { IDL, PROGRAM_ID, type Rps } from "./idl";
 
 export { IDL, PROGRAM_ID };
