@@ -11,7 +11,7 @@ export default function Navigation() {
   const tabs = [
     { name: "Home", href: "/", icon: <Home size={18} /> },
     { name: "Builder", href: "/builder", icon: <Wrench size={18} /> },
-    { name: "RPS Game", href: "/game", icon: <Gamepad2 size={18} />, comingSoon: true },
+    { name: "The Pit", href: "/game", icon: <Gamepad2 size={18} />, comingSoon: true },
   ];
 
   return (
