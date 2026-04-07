@@ -3,7 +3,7 @@
 //   export { IDL } from "../../target/types/rps";
 //   export type { Rps } from "../../target/types/rps";
 
-export const PROGRAM_ID = "HomVmAdQF4SYXyajJMGzFutCGPb85fR1kQjnq1GdZXGJ";
+export const PROGRAM_ID = "3cbtsFyeP6N5m9WAh35AkXY1KHxG6Q5rv6EVMsr3JyRP";
 
 export const IDL = {
   address: PROGRAM_ID,
