@@ -3,7 +3,11 @@
 import traitsData from "../../traits.json";
 import Image from "next/image";
 import { useMemo, useState } from "react";
+import { useWallet } from "@solana/wallet-adapter-react";
+import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import styles from "./page.module.css";
+
+const MINT_PRICE_SOL = 0.1;
 
 const CATEGORIES = ["Background", "Skin", "Clothes", "Face", "Hats"] as const;
 type Category = (typeof CATEGORIES)[number];
@@ -95,6 +99,7 @@ function TraitCard({
 }
 
 export default function BuilderPage() {
+  const { publicKey } = useWallet();
   const traits = traitsData as Trait[];
   const traitsByCategory = useMemo(
     () => groupTraitsByCategory(traits),
@@ -112,6 +117,7 @@ export default function BuilderPage() {
   });
 
   const [doggoName, setDoggoName] = useState("Cool Doggo #1");
+  const [isMinting, setIsMinting] = useState(false);
 
   const handleSelect = (category: Category, trait: Trait) => {
     setSelected((prev) => ({ ...prev, [category]: trait }));
@@ -155,6 +161,45 @@ export default function BuilderPage() {
     URL.revokeObjectURL(url);
   };
 
+  const handleMint = async () => {
+    if (!publicKey) {
+      alert("Please connect your wallet first");
+      return;
+    }
+
+    setIsMinting(true);
+    try {
+      // TODO: Implement NFT mint functionality
+      // 1. Upload metadata to IPFS
+      // 2. Create and send mint transaction
+      // 3. Handle success/error states
+      const attributes = CATEGORIES.map(cat => ({
+        trait_type: cat,
+        value: selected[cat]?.Name || "None"
+      }));
+
+      const metadata = {
+        name: doggoName,
+        symbol: "PUP",
+        description: "A Pupsamigo from the 420 pups collection on Solana",
+        image: "ipfs://...",
+        attributes: attributes,
+        properties: {
+          category: "image",
+          files: []
+        }
+      };
+
+      console.log("Mint metadata:", metadata);
+      alert(`Minting ${doggoName} for ${MINT_PRICE_SOL} SOL - Coming Soon!`);
+    } catch (error) {
+      console.error("Mint failed:", error);
+      alert("Mint failed. Please try again.");
+    } finally {
+      setIsMinting(false);
+    }
+  };
+
   return (
     <div className={styles.container}>
       {/* Left: Preview Section */}
@@ -190,6 +235,16 @@ export default function BuilderPage() {
           >
             ⬇️ Get Metadata
           </button>
+          <button
+            type="button"
+            onClick={handleMint}
+            disabled={isMinting || !publicKey}
+            className={styles.primaryButton}
+            style={{ opacity: isMinting || !publicKey ? 0.6 : 1 }}
+          >
+            {isMinting ? "⏳ Minting..." : `✨ Mint ${MINT_PRICE_SOL} SOL`}
+          </button>
+          <WalletMultiButton />
         </div>
       </section>
 

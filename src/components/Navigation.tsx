@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import styles from "./Navigation.module.css";
-import { Home, Wrench, Gamepad2, Settings } from "lucide-react";
+import { Home, Wrench, Gamepad2 } from "lucide-react";
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -11,14 +11,13 @@ export default function Navigation() {
   const tabs = [
     { name: "Home", href: "/", icon: <Home size={18} /> },
     { name: "Builder", href: "/builder", icon: <Wrench size={18} /> },
-    { name: "RPS Game", href: "/game", icon: <Gamepad2 size={18} /> },
-    { name: "Admin", href: "/admin", icon: <Settings size={18} /> },
+    { name: "RPS Game", href: "/game", icon: <Gamepad2 size={18} />, comingSoon: true },
   ];
 
   return (
     <nav className={styles.nav}>
       <div className={styles.logo}>
-        🐕 DOGGOS<span>.</span>BUILDER
+        🐕 PUPSAMIGOS
       </div>
       <div className={styles.tabs}>
         {tabs.map((tab) => {
@@ -31,6 +30,7 @@ export default function Navigation() {
             >
               {tab.icon}
               <span>{tab.name}</span>
+              {tab.comingSoon && <span style={{ fontSize: "11px", marginLeft: "4px", opacity: 0.6 }}>Coming Soon</span>}
             </Link>
           );
         })}

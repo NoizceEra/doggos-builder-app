@@ -53,142 +53,20 @@ function useRpsProgram() {
 // ─── App ──────────────────────────────────────────────────────────────────────
 
 export default function RpsPage() {
-  const { publicKey } = useWallet();
-  const program = useRpsProgram();
-
-  const [games, setGames]               = useState<GameAccount[]>([]);
-  const [loading, setLoading]           = useState(false);
-  const [showCreate, setShowCreate]     = useState(false);
-  const [selectedGame, setSelectedGame] = useState<GameAccount | null>(null);
-
-  const refresh = useCallback(async () => {
-    if (!program) return;
-    setLoading(true);
-    try {
-      const all = await fetchAllGames(program);
-      setGames(all);
-    } catch (e) {
-      console.error("Failed to fetch games:", e);
-    } finally {
-      setLoading(false);
-    }
-  }, [program]);
-
-  useEffect(() => {
-    if (program) refresh();
-  }, [program, refresh]);
-
-  // Re-select updated game after refresh
-  useEffect(() => {
-    if (selectedGame) {
-      const updated = games.find((g) => g.publicKey.equals(selectedGame.publicKey));
-      if (updated) setSelectedGame(updated);
-    }
-  }, [games]); // eslint-disable-line
-
-  async function handleCreate(wagerSol: number) {
-    if (!program || !publicKey) return;
-    const gameId = new BN(Date.now());
-    await txCreateGame(program, publicKey, gameId, new BN(Math.round(wagerSol * LAMPORTS_PER_SOL)));
-    await refresh();
-  }
-
-  const myGames = games.filter(
-    (g) => publicKey && (g.player1.equals(publicKey) || g.player2?.equals(publicKey))
-  );
-  const openGames = games.filter(
-    (g) =>
-      g.status === "waitingForPlayer" &&
-      publicKey &&
-      !g.player1.equals(publicKey)
-  );
-
   return (
     <main className={styles.main}>
       <header className={styles.gameHeader}>
         <div className={styles.titleArea}>
           <h1>RPS Arena</h1>
-          <p>Provably fair challenges on Solana</p>
-        </div>
-        <div className={styles.headerBtnGroup}>
-          {publicKey && (
-            <button className={styles.refreshBtn} onClick={refresh} disabled={loading}>
-              <RefreshCw className={loading ? styles.spinning : ""} size={18} />
-              Refresh
-            </button>
-          )}
-          <WalletMultiButton />
+          <p>Coming Soon...</p>
         </div>
       </header>
 
-      {!publicKey ? (
-        <section className={styles.connectPrompt}>
-          <div className={styles.promptIcon}>⚔️</div>
-          <h2>Connect Your Wallet</h2>
-          <p>Join the arena to challenge others and win SOL.</p>
-          <WalletMultiButton />
-        </section>
-      ) : (
-        <div className={styles.content}>
-          <section className={styles.gameSection}>
-            <div className={styles.sectionTitle}>
-              <h2>My Battles</h2>
-              <button className={styles.createBtn} onClick={() => setShowCreate(true)}>
-                <Plus size={18} /> Create New
-              </button>
-            </div>
-            <div className={styles.gameGrid}>
-              <AnimatePresence>
-                {myGames.map((g) => (
-                  <GameCard
-                    key={g.publicKey.toBase58()}
-                    game={g}
-                    myKey={publicKey}
-                    onClick={() => setSelectedGame(g)}
-                  />
-                ))}
-              </AnimatePresence>
-              {myGames.length === 0 && <p className={styles.empty}>No active games.</p>}
-            </div>
-          </section>
-
-          <section className={styles.gameSection}>
-            <div className={styles.sectionTitle}>
-              <h2>Open Challenges</h2>
-            </div>
-            <div className={styles.gameGrid}>
-               <AnimatePresence>
-                {openGames.map((g) => (
-                  <GameCard
-                    key={g.publicKey.toBase58()}
-                    game={g}
-                    myKey={publicKey}
-                    onClick={() => setSelectedGame(g)}
-                  />
-                ))}
-              </AnimatePresence>
-              {openGames.length === 0 && <p className={styles.empty}>No open challenges available.</p>}
-            </div>
-          </section>
-        </div>
-      )}
-
-      <AnimatePresence>
-        {showCreate && (
-          <CreateGameModal
-            onClose={() => setShowCreate(false)}
-            onCreate={handleCreate}
-          />
-        )}
-        {selectedGame && publicKey && (
-          <GameModal
-            game={selectedGame}
-            myKey={publicKey}
-            onClose={() => setSelectedGame(null)}
-            onAction={refresh}
-          />
-        )}
-      </AnimatePresence>
+      <section className={styles.connectPrompt}>
+        <div className={styles.promptIcon}>🎮</div>
+        <h2>Coming Soon</h2>
+        <p>We're building the ultimate RPS experience. Stay tuned!</p>
+      </section>
     </main>
   );
 }

@@ -17,11 +17,11 @@ export default function LandingPage() {
           className={styles.heroContent}
         >
           <h1 className={styles.heroTitle}>
-            The Ultimate 🐕 <br />
-            <span>Doggo Universe</span>
+            420 Pups 🐕 <br />
+            <span>$PUP on Solana</span>
           </h1>
           <p className={styles.heroSubtitle}>
-            Build your unique digital companion, play provably fair games on Solana, and join the most vibrant community in the dog-o-sphere.
+            In the crypto trenches. Building, collecting, gambling, and achieving together. Mint your Pupsamigo, stake your skills, and win in the on-chain arena.
           </p>
           <div className={styles.heroActions}>
             <Link href="/builder" className={styles.primaryBtn}>
@@ -49,23 +49,23 @@ export default function LandingPage() {
       <section className={styles.features}>
         <div className={styles.featureCard}>
           <div className={styles.iconBox}><Palette size={32} /></div>
-          <h3>Dynamic NFT Builder</h3>
-          <p>Over 1,000 combinations of backgrounds, skins, and accessories to make your Doggo truly yours.</p>
+          <h3>Mint Your Pup</h3>
+          <p>Customize and mint your unique Pupsamigo NFT for 0.1 SOL. Over 1,000 combinations to choose from.</p>
         </div>
         <div className={styles.featureCard}>
           <div className={styles.iconBox}><Zap size={32} /></div>
-          <h3>On-Chain Gaming</h3>
-          <p>Provably fair Rock-Paper-Scissors built on Solana. Stake your skills and win rewards.</p>
+          <h3>Gamble & Win</h3>
+          <p>Provably fair Rock-Paper-Scissors on Solana. Stake SOL, battle other pups, and achieve greatness.</p>
         </div>
         <div className={styles.featureCard}>
           <div className={styles.iconBox}><Target size={32} /></div>
-          <h3>Community First</h3>
-          <p>Join a decentralized autonomous pack that rewards long-term holders and creators.</p>
+          <h3>$PUP Token</h3>
+          <p>420 pups building in the crypto trenches. Collect, hold, and be part of the pack.</p>
         </div>
       </section>
 
       <footer className={styles.footer}>
-        <p>&copy; 2026 DOGGOS.BUILDER. All rights reserved.</p>
+        <p>&copy; 2026 PUPSAMIGOS. 420 Pups on Solana. Building in the crypto trenches.</p>
       </footer>
     </main>
   );

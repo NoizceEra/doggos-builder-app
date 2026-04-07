@@ -10,8 +10,8 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Doggos Builder - Mint Your NFT",
-  description: "Create your ultimate Doggo NFT using our interactive dynamic builder. Choose backgrounds, skins, clothes, and more!",
+  title: "Pupsamigos - 420 Pups on Solana",
+  description: "420 pups on the Solana blockchain. Build, collect, gamble, and achieve in the crypto trenches.",
 };
 
 export default function RootLayout({
