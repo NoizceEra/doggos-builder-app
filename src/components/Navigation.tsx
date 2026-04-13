@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import styles from "./Navigation.module.css";
-import { Home, Wrench, Gamepad2, Share2 } from "lucide-react";
+import { Home, Wrench, Gamepad2 } from "lucide-react";
+import { TwitterIcon } from "./TwitterIcon";
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -43,7 +44,7 @@ export default function Navigation() {
           className={styles.socialLink}
           title="Follow Pupsamigos on X"
         >
-          <Share2 size={20} />
+          <TwitterIcon size={20} />
         </a>
       </div>
     </nav>
