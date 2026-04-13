@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import styles from "./Navigation.module.css";
 import { Home, Wrench, Gamepad2 } from "lucide-react";
 import { TwitterIcon } from "./TwitterIcon";
+import { TelegramIcon } from "./TelegramIcon";
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -37,6 +38,15 @@ export default function Navigation() {
         })}
       </div>
       <div className={styles.actions}>
+        <a
+          href="https://t.me/pupsamigos_fun"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.socialLink}
+          title="Join Pupsamigos on Telegram"
+        >
+          <TelegramIcon size={20} />
+        </a>
         <a
           href="https://x.com/Pupsamigos"
           target="_blank"

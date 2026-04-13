@@ -2,10 +2,20 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Zap, Target, Palette } from "lucide-react";
+import { ArrowRight, Zap, Target, Palette, Copy } from "lucide-react";
 import styles from "./page.module.css";
+import { useState } from "react";
 
 export default function LandingPage() {
+  const [copied, setCopied] = useState(false);
+  const contractAddress = "4C5nqfEjVVaBJERrmowy4X94QpWmj8pUjS3Q4GQcpump";
+
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(contractAddress);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
     <main className={styles.landing}>
       {/* Hero Section */}
@@ -44,6 +54,11 @@ export default function LandingPage() {
               Follow @Pupsamigos
             </a>
           </div>
+
+          {/* $PUPS Holder Info */}
+          <div className={styles.pupsHolderNote}>
+            💎 <strong>$PUPS Holders:</strong> Mint your Pupsamigo for 100,000 $PUPS!
+          </div>
         </motion.div>
 
         <motion.div
@@ -79,15 +94,38 @@ export default function LandingPage() {
 
       <footer className={styles.footer}>
         <p>&copy; 2026 PUPSAMIGOS. 420 Pups on Solana. Building in the crypto trenches.</p>
-        <div style={{ marginTop: "1rem" }}>
-          <a 
-            href="https://x.com/Pupsamigos" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            style={{ color: "var(--primary)", textDecoration: "none", fontWeight: "bold" }}
-          >
-            Follow @Pupsamigos on X
-          </a>
+        <div style={{ marginTop: "1.5rem", display: "flex", flexDirection: "column", gap: "1rem", alignItems: "center" }}>
+          <div style={{ display: "flex", gap: "1rem", alignItems: "center", flexWrap: "wrap", justifyContent: "center" }}>
+            <a 
+              href="https://x.com/Pupsamigos" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{ color: "var(--primary)", textDecoration: "none", fontWeight: "bold" }}
+            >
+              Follow @Pupsamigos on X
+            </a>
+            <span style={{ color: "#00d4ff" }}>•</span>
+            <a 
+              href="https://t.me/pupsamigos_fun" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{ color: "var(--secondary)", textDecoration: "none", fontWeight: "bold" }}
+            >
+              Join Telegram
+            </a>
+          </div>
+          <div className={styles.contractAddress}>
+            <span>Contract:</span>
+            <code>{contractAddress}</code>
+            <button 
+              onClick={copyToClipboard}
+              style={{ background: "none", border: "none", cursor: "pointer", padding: "0 0.5rem" }}
+              title="Copy contract address"
+            >
+              <Copy size={16} />
+            </button>
+            {copied && <span style={{ fontSize: "0.85rem", color: "#00ff88" }}>✓ Copied!</span>}
+          </div>
         </div>
       </footer>
     </main>
