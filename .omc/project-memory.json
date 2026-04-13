@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastScanned": 1775576605809,
+  "lastScanned": 1776107877530,
   "projectRoot": "C:\\Users\\vclin_jjufoql\\.openclaw\\workspace\\doggos-builder-app",
   "techStack": {
     "languages": [
@@ -74,7 +74,7 @@
       "path": "public",
       "purpose": "Public files",
       "fileCount": 5,
-      "lastAccessed": 1775576605758,
+      "lastAccessed": 1776107877468,
       "keyFiles": [
         "file.svg",
         "globe.svg",
@@ -87,7 +87,7 @@
       "path": "src",
       "purpose": "Source code",
       "fileCount": 1,
-      "lastAccessed": 1775576605759,
+      "lastAccessed": 1776107877469,
       "keyFiles": [
         "traits.json"
       ]
@@ -96,7 +96,7 @@
       "path": "src\\app",
       "purpose": "Application code",
       "fileCount": 5,
-      "lastAccessed": 1775576605771,
+      "lastAccessed": 1776107877482,
       "keyFiles": [
         "favicon.ico",
         "globals.css",
@@ -107,7 +107,7 @@
       "path": "src\\components",
       "purpose": "UI components",
       "fileCount": 3,
-      "lastAccessed": 1775576605772,
+      "lastAccessed": 1776107877483,
       "keyFiles": [
         "Navigation.module.css",
         "Navigation.tsx",
@@ -115,31 +115,6 @@
       ]
     }
   },
-  "hotPaths": [
-    {
-      "path": "src\\components\\Navigation.tsx",
-      "accessCount": 5,
-      "lastAccessed": 1775577804133,
-      "type": "file"
-    },
-    {
-      "path": "src\\app\\page.tsx",
-      "accessCount": 4,
-      "lastAccessed": 1775577903265,
-      "type": "file"
-    },
-    {
-      "path": "src\\app\\layout.tsx",
-      "accessCount": 2,
-      "lastAccessed": 1775577815452,
-      "type": "file"
-    },
-    {
-      "path": "src\\app\\game\\page.tsx",
-      "accessCount": 2,
-      "lastAccessed": 1775577834342,
-      "type": "file"
-    }
-  ],
+  "hotPaths": [],
   "userDirectives": []
 }

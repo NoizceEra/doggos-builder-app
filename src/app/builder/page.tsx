@@ -65,17 +65,17 @@ function DoggoPreview({ selected }: { selected: SelectedTraits }) {
   );
 }
 
-function TraitCard({ 
-  trait, 
-  isActive, 
-  onClick 
-}: { 
-  trait: Trait; 
-  isActive: boolean; 
+function TraitCard({
+  trait,
+  isActive,
+  onClick
+}: {
+  trait: Trait;
+  isActive: boolean;
   onClick: () => void;
 }) {
   const imagePath = `/traits/${trait.Category}/${encodeURIComponent(trait.FileName)}`;
-  
+
   return (
     <button
       type="button"
@@ -117,7 +117,6 @@ export default function BuilderPage() {
   });
 
   const [doggoName, setDoggoName] = useState("Cool Doggo #1");
-  const [isMinting, setIsMinting] = useState(false);
 
   const handleSelect = (category: Category, trait: Trait) => {
     setSelected((prev) => ({ ...prev, [category]: trait }));
@@ -136,24 +135,6 @@ export default function BuilderPage() {
       }
       return next;
     });
-  };
-
-  const handleMint = async () => {
-    if (!publicKey) {
-      alert("Please connect your wallet first");
-      return;
-    }
-
-    setIsMinting(true);
-    try {
-      // Placeholder for LaunchMyNFT integration
-      alert(`Minting ${doggoName} for ${MINT_PRICE_SOL} SOL - Launching on LaunchMyNFT soon!`);
-    } catch (error) {
-      console.error("Mint failed:", error);
-      alert("Mint failed. Please try again.");
-    } finally {
-      setIsMinting(false);
-    }
   };
 
   return (
@@ -175,7 +156,7 @@ export default function BuilderPage() {
         <div className={styles.previewBox}>
           <DoggoPreview selected={selected} />
         </div>
-        
+
         <div className={styles.buttonGroup}>
           <button
             type="button"
@@ -184,15 +165,15 @@ export default function BuilderPage() {
           >
             🎲 Randomize
           </button>
-          <button
-            type="button"
-            onClick={handleMint}
-            disabled={isMinting || !publicKey}
+          <a
+            href="https://launchmynft.io/collections/HZgWGB556RnLhRjrN92B3gxHy2XStbsWyhYRBtxw5Log/ZXUU4SgyedOmsWWlXSGz"
+            target="_blank"
+            rel="noopener noreferrer"
             className={styles.primaryButton}
-            style={{ width: "100%", marginTop: "1rem" }}
+            style={{ width: "100%", marginTop: "1rem", display: "inline-block", textAlign: "center", textDecoration: "none" }}
           >
-            {isMinting ? "⏳ Minting..." : "✨ Mint Now"}
-          </button>
+            ✨ Mint Now
+          </a>
           <div style={{ marginTop: "1rem" }}>
             <WalletMultiButton />
           </div>
@@ -205,7 +186,7 @@ export default function BuilderPage() {
           {CATEGORIES.map((category) => {
             const list = traitsByCategory[category] || [];
             const selected_trait = selected[category];
-            
+
             return (
               <div
                 key={category}
@@ -219,7 +200,7 @@ export default function BuilderPage() {
                     </span>
                   )}
                 </div>
-                
+
                 <div className={styles.traitGrid}>
                   {list.map((trait) => {
                     const isActive = selected[category]?.Name === trait.Name;

@@ -24,8 +24,16 @@ export default function LandingPage() {
             In the crypto trenches. Building, collecting, gambling, and achieving together. Mint your Pupsamigo, stake your skills, and win in the on-chain arena.
           </p>
           <div className={styles.heroActions}>
-            <Link href="/builder" className={styles.primaryBtn}>
-              Start Building <ArrowRight size={20} />
+            <a 
+              href="https://launchmynft.io/collections/HZgWGB556RnLhRjrN92B3gxHy2XStbsWyhYRBtxw5Log/ZXUU4SgyedOmsWWlXSGz"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.primaryBtn}
+            >
+              ✨ Mint Now <ArrowRight size={20} />
+            </a>
+            <Link href="/builder" className={styles.secondaryBtn}>
+              Build Your Pup <ArrowRight size={20} />
             </Link>
             <a 
               href="https://x.com/Pupsamigos" 
