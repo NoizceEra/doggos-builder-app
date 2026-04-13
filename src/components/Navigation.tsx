@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import styles from "./Navigation.module.css";
-import { Home, Wrench, Gamepad2, Twitter } from "lucide-react";
+import { Home, Wrench, Gamepad2, Share2 } from "lucide-react";
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -36,14 +36,14 @@ export default function Navigation() {
         })}
       </div>
       <div className={styles.actions}>
-        <a 
-          href="https://x.com/Pupsamigos" 
-          target="_blank" 
+        <a
+          href="https://x.com/Pupsamigos"
+          target="_blank"
           rel="noopener noreferrer"
           className={styles.socialLink}
-          title="Follow Pupsamigos on Twitter"
+          title="Follow Pupsamigos on X"
         >
-          <Twitter size={20} />
+          <Share2 size={20} />
         </a>
       </div>
     </nav>
