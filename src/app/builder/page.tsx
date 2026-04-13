@@ -191,7 +191,7 @@ export default function BuilderPage() {
             className={styles.primaryButton}
             style={{ width: "100%", marginTop: "1rem" }}
           >
-            {isMinting ? "⏳ Processing..." : "✨ Mint Now"}
+            {isMinting ? "⏳ Minting..." : "✨ Mint Now"}
           </button>
           <div style={{ marginTop: "1rem" }}>
             <WalletMultiButton />
