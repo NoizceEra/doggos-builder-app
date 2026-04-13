@@ -12,6 +12,9 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: "Pupsamigos - 420 Pups on Solana",
   description: "420 pups on the Solana blockchain. Build, collect, gamble, and achieve in the crypto trenches.",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
