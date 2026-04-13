@@ -138,29 +138,6 @@ export default function BuilderPage() {
     });
   };
 
-  const handleDownload = () => {
-    const attributes = CATEGORIES.map(cat => ({
-      trait_type: cat,
-      value: selected[cat]?.Name || "None"
-    }));
-
-    const metadata = {
-      name: doggoName,
-      image: "ipfs://...",
-      attributes: attributes
-    };
-
-    const blob = new Blob([JSON.stringify(metadata, null, 2)], { type: "application/json" });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = `${doggoName.replace(/\s+/g, "-").toLowerCase()}-metadata.json`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
-  };
-
   const handleMint = async () => {
     if (!publicKey) {
       alert("Please connect your wallet first");
@@ -169,29 +146,8 @@ export default function BuilderPage() {
 
     setIsMinting(true);
     try {
-      // TODO: Implement NFT mint functionality
-      // 1. Upload metadata to IPFS
-      // 2. Create and send mint transaction
-      // 3. Handle success/error states
-      const attributes = CATEGORIES.map(cat => ({
-        trait_type: cat,
-        value: selected[cat]?.Name || "None"
-      }));
-
-      const metadata = {
-        name: doggoName,
-        symbol: "PUP",
-        description: "A Pupsamigo from the 420 pups collection on Solana",
-        image: "ipfs://...",
-        attributes: attributes,
-        properties: {
-          category: "image",
-          files: []
-        }
-      };
-
-      console.log("Mint metadata:", metadata);
-      alert(`Minting ${doggoName} for ${MINT_PRICE_SOL} SOL - Coming Soon!`);
+      // Placeholder for LaunchMyNFT integration
+      alert(`Minting ${doggoName} for ${MINT_PRICE_SOL} SOL - Launching on LaunchMyNFT soon!`);
     } catch (error) {
       console.error("Mint failed:", error);
       alert("Mint failed. Please try again.");
@@ -224,27 +180,22 @@ export default function BuilderPage() {
           <button
             type="button"
             onClick={handleRandom}
-            className={styles.primaryButton}
-          >
-            🎲 Randomize
-          </button>
-          <button
-            type="button"
-            onClick={handleDownload}
             className={styles.secondaryButton}
           >
-            ⬇️ Get Metadata
+            🎲 Randomize
           </button>
           <button
             type="button"
             onClick={handleMint}
             disabled={isMinting || !publicKey}
             className={styles.primaryButton}
-            style={{ opacity: isMinting || !publicKey ? 0.6 : 1 }}
+            style={{ width: "100%", marginTop: "1rem" }}
           >
-            {isMinting ? "⏳ Minting..." : `✨ Mint ${MINT_PRICE_SOL} SOL`}
+            {isMinting ? "⏳ Processing..." : "✨ Mint Now"}
           </button>
-          <WalletMultiButton />
+          <div style={{ marginTop: "1rem" }}>
+            <WalletMultiButton />
+          </div>
         </div>
       </section>
 

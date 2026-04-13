@@ -73,6 +73,18 @@
   box-shadow: 0 15px 40px rgba(99, 102, 241, 0.5);
 }
 
+.secondaryBtn, .twitterBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1.25rem 2.5rem;
+  border-radius: 1rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
 .secondaryBtn {
   background: rgba(30, 41, 59, 0.5);
   backdrop-filter: blur(10px);
@@ -84,6 +96,19 @@
   transform: translateY(-5px);
   background: rgba(30, 41, 59, 0.8);
   border-color: rgba(255, 255, 255, 0.2);
+}
+
+.twitterBtn {
+  background: #1da1f2;
+  color: #fff;
+  border: none;
+  box-shadow: 0 10px 30px rgba(29, 161, 242, 0.3);
+}
+
+.twitterBtn:hover {
+  transform: translateY(-5px);
+  background: #1a91da;
+  box-shadow: 0 15px 40px rgba(29, 161, 242, 0.4);
 }
 
 .heroImage {

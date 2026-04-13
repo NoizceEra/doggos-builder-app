@@ -27,9 +27,14 @@ export default function LandingPage() {
             <Link href="/builder" className={styles.primaryBtn}>
               Start Building <ArrowRight size={20} />
             </Link>
-            <Link href="/game" className={styles.secondaryBtn}>
-              Play RPS Game
-            </Link>
+            <a 
+              href="https://x.com/Pupsamigos" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className={styles.twitterBtn}
+            >
+              Follow @Pupsamigos
+            </a>
           </div>
         </motion.div>
 
@@ -66,6 +71,16 @@ export default function LandingPage() {
 
       <footer className={styles.footer}>
         <p>&copy; 2026 PUPSAMIGOS. 420 Pups on Solana. Building in the crypto trenches.</p>
+        <div style={{ marginTop: "1rem" }}>
+          <a 
+            href="https://x.com/Pupsamigos" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{ color: "var(--primary)", textDecoration: "none", fontWeight: "bold" }}
+          >
+            Follow @Pupsamigos on X
+          </a>
+        </div>
       </footer>
     </main>
   );

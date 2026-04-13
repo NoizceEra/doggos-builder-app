@@ -1,7 +1,7 @@
 {
   "tool_name": "Bash",
-  "tool_input_preview": "{\"command\":\"cd /Users/vclin_jjufoql/.openclaw/workspace/doggos-builder-app && git add -A && git commit -m \\\"feat: rebrand to Pupsamigos, remove admin tab, add Coming Soon to RPS, scaffold mint feature...",
-  "error": "Exit code 1\n/usr/bin/bash: line 10: cd: /Users/vclin_jjufoql/.openclaw/workspace/doggos-builder-app: No such file or directory",
-  "timestamp": "2026-04-07T16:05:10.897Z",
+  "tool_input_preview": "{\"command\":\"taskkill /PID 38380 /F\",\"timeout\":5000,\"description\":\"Kill existing Next.js dev server\"}",
+  "error": "Exit code 1\nERROR: Invalid argument/option - 'C:/Program Files/Git/PID'.\r\nType \"TASKKILL /?\" for usage.",
+  "timestamp": "2026-04-07T16:28:25.155Z",
   "retry_count": 1
 }
